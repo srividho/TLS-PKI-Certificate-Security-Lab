@@ -1,0 +1,29 @@
+# Private cryptographic keys
+*.key
+*-private.pem
+rsa-private.pem
+
+# Private certificates / sensitive material
+*.p12
+*.pfx
+*.p12
+*.jks
+
+# OpenSSL generated serial/state files
+*.srl
+*.old
+*.attr.old
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# macOS
+.DS_Store
+
+# Temporary files
+*.tmp
+*.log

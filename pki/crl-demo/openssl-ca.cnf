@@ -1,0 +1,37 @@
+[ ca ]
+default_ca = lab_ca
+
+[ lab_ca ]
+dir = pki/crl-demo
+
+database = $dir/index.txt
+new_certs_dir = $dir/newcerts
+serial = $dir/serial
+crlnumber = $dir/crlnumber
+
+certificate = pki/ca/root-ca-cert.pem
+private_key = pki/ca/root-ca-private.pem
+
+default_md = sha256
+default_days = 825
+default_crl_days = 30
+
+policy = policy_loose
+unique_subject = no
+
+[ policy_loose ]
+countryName = optional
+stateOrProvinceName = optional
+localityName = optional
+organizationName = optional
+organizationalUnitName = optional
+commonName = supplied
+emailAddress = optional
+
+[ server_cert ]
+basicConstraints = critical,CA:false
+keyUsage = critical,digitalSignature,keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = DNS:revocation-test.localhost
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid,issuer
